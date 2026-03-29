@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="it" data-lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloborg - Vinyl Pressing</title>
+    <meta
+      name="description"
+      content='Pressing vinili 12", 7" e copie singole. Prezzi e richiesta preventivo.'
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip.toContent">Vai al contenuto</a>
+
+    <div class="desktop">
+      <main id="main">
+        <div class="crt" id="top">
+          <div class="window window--screen window--main" id="mainWindow">
+            <div class="window__titlebar">
+              <span class="window__title">
+                <img class="window__icon" src="./assets/logo.png" alt="" aria-hidden="true" />
+                <span data-i18n="window.mainTitle">Blob Records</span>
+              </span>
+              <div class="window__controls" aria-hidden="true">
+                <button
+                  type="button"
+                  class="window__btn window__btn--min"
+                  data-window-action="minimize"
+                  aria-label="Riduci"
+                  data-i18n-aria-label="window.minimize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--max"
+                  data-window-action="maximize"
+                  aria-label="Ripristina/Ridimensiona"
+                  data-i18n-aria-label="window.maximize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--close"
+                  data-window-action="close"
+                  aria-label="Chiudi"
+                  data-i18n-aria-label="window.close"
+                ></button>
+              </div>
+            </div>
+
+            <div class="window__body">
+              <section class="hero">
+                <div class="container hero__inner">
+                  <div class="hero__copy">
+                    <p class="hero__kicker editable" data-edit-key="hero.kicker">Trasforma la tua musica in arte</p>
+                    <h1 class="hero__title editable" data-edit-key="hero.title">12", 7" e copie singole</h1>
+                    <p class="hero__subtitle editable" data-edit-key="hero.subtitle">
+                      Pressing vinili, copertine ed extra. Seleziona le opzioni e richiedi un preventivo.
+                    </p>
+
+                    <div class="hero__actions">
+                      <a class="button button--ghost" href="#prices" data-i18n="hero.ctaPrices">Vedi prezzi</a>
+                      <a class="button button--primary" href="#quote" data-i18n="hero.ctaQuote">Richiedi un preventivo</a>
+                    </div>
+                  </div>
+
+                  <div class="hero__visual" aria-hidden="true">
+                    <div class="hero-logo">
+                      <img
+                        class="hero-logo__img"
+                        src="./assets/logoblob.png"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="crt" id="prices">
+          <div class="window window--screen">
+            <div class="window__titlebar">
+              <span class="window__title">
+                <img class="window__icon" src="./assets/logo.png" alt="" aria-hidden="true" />
+                <span data-i18n="window.pricesTitle">Blob Records - Prezzi</span>
+              </span>
+              <div class="window__controls" aria-hidden="true">
+                <button
+                  type="button"
+                  class="window__btn window__btn--min"
+                  data-window-action="minimize"
+                  aria-label="Riduci"
+                  data-i18n-aria-label="window.minimize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--max"
+                  data-window-action="maximize"
+                  aria-label="Ripristina/Ridimensiona"
+                  data-i18n-aria-label="window.maximize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--close"
+                  data-window-action="close"
+                  aria-label="Chiudi"
+                  data-i18n-aria-label="window.close"
+                ></button>
+              </div>
+            </div>
+
+            <div class="window__body">
+              <section class="prices">
+                <div class="container">
+                  <div class="section-head">
+                    <h2 class="section-title editable" data-edit-key="prices.title">Prezzi</h2>
+                    <p class="section-subtitle editable" data-edit-key="prices.subtitle">
+                      Layout "a griglia" come nel riferimento: scelte in alto, riepilogo sotto.
+                    </p>
+                  </div>
+
+                  <div class="prices__grid">
+                    <div class="prices__panel prices__panel--record">
+                      <h3 class="panel-title" data-i18n="prices.recordTypes">Tipi di disco</h3>
+                      <div class="chips" role="tablist" aria-label="Record types">
+                        <button class="chip is-active" data-group="record" data-value="12">12"</button>
+                        <button class="chip" data-group="record" data-value="7">7"</button>
+                        <button class="chip" data-group="record" data-value="single">
+                          <span data-i18n="option.record.single">Copia singola</span>
+                        </button>
+                      </div>
+                      <p class="prices__chip-group-label" id="pricesWeightLabel" data-i18n="prices.vinylWeight">Vinyl weight</p>
+                      <div
+                        class="chips chips--wrap"
+                        role="tablist"
+                        aria-label="Vinyl weight"
+                        data-i18n-aria-label="prices.vinylWeight"
+                      >
+                        <button type="button" class="chip is-active" data-group="weight" data-value="140">140g</button>
+                        <button type="button" class="chip" data-group="weight" data-value="180">180g</button>
+                      </div>
+                    </div>
+
+                    <div class="prices__panel prices__panel--sleeve">
+                      <h3 class="panel-title" data-i18n="prices.sleeveTypes">Tipi di copertina</h3>
+                      <div class="chips" role="tablist" aria-label="Sleeve types">
+                        <button class="chip is-active" data-group="sleeve" data-value="basic">
+                          <span data-i18n="option.sleeve.basic">Basic (senza copertina)</span>
+                        </button>
+                        <button class="chip" data-group="sleeve" data-value="printed">
+                          <span data-i18n="option.sleeve.printed">Normale</span>
+                        </button>
+                        <button class="chip" data-group="sleeve" data-value="gatefold">Gatefold</button>
+                      </div>
+                      <p class="prices__sleeve-hint" id="sleeveHint" aria-live="polite"></p>
+                      <p class="prices__sleeve-type-hint" id="sleeveTypeHint" aria-live="polite" hidden></p>
+                    </div>
+
+                    <div class="prices__panel prices__panel--qty">
+                      <h3 class="panel-title" data-i18n="prices.qty">Numero di copie</h3>
+                      <div class="chips chips--wrap" aria-label="Numero di copie" id="qtyChips">
+                        <button class="chip" data-group="qty" data-value="100">100</button>
+                        <button class="chip" data-group="qty" data-value="200">200</button>
+                        <button class="chip" data-group="qty" data-value="300">300</button>
+                        <button class="chip" data-group="qty" data-value="500">500</button>
+                        <button class="chip is-active" data-group="qty" data-value="1000">1000</button>
+                      </div>
+                    </div>
+
+                    <div class="prices__panel prices__panel--wide prices__panel--colors" id="pricesColorPanel">
+                      <h3 class="panel-title" data-i18n="prices.colors">Colors</h3>
+                      <div
+                        class="chips chips--wrap"
+                        role="tablist"
+                        aria-label="Colors"
+                        data-i18n-aria-label="prices.colors"
+                      >
+                        <button class="chip is-active" data-group="color" data-value="black">Black</button>
+                        <button class="chip" data-group="color" data-value="clear">Clear</button>
+                        <button class="chip" data-group="color" data-value="solid color" data-i18n="form.optionColorSolid">
+                          Solid
+                        </button>
+                        <button class="chip" data-group="color" data-value="smoked">Smoked</button>
+                        <button class="chip" data-group="color" data-value="splatter">Splatter</button>
+                        <button class="chip" data-group="color" data-value="marbled" data-i18n="form.optionColorMarbled">
+                          Marbled
+                        </button>
+                        <button class="chip" data-group="color" data-value="recycled random" data-i18n="form.optionColorRecycled">
+                          Recycled Random
+                        </button>
+                      </div>
+                      <p class="prices__color-hint" id="colorHint" aria-live="polite"></p>
+                    </div>
+                  </div>
+
+                  <div class="prices__details" aria-live="polite">
+                    <div class="details-card">
+                      <div class="details-card__head">
+                        <h3 class="details-title" data-i18n="prices.summary">Riepilogo</h3>
+                        <span class="details-badge" id="selectionBadge">12" • 140g • 1000 copie • Solo vinile</span>
+                      </div>
+
+                      <div class="details-table" role="table" aria-label="Price breakdown">
+                        <div class="details-row" role="row">
+                          <div class="details-cell details-cell--label" role="cell" data-i18n="prices.unitPrice">
+                            Prezzo unitario
+                          </div>
+                          <div class="details-cell details-cell--value" role="cell" id="priceUnit">
+                            —
+                          </div>
+                        </div>
+                        <div class="details-row" role="row">
+                          <div class="details-cell details-cell--label" role="cell" data-i18n="prices.copies">
+                            Copie
+                          </div>
+                          <div class="details-cell details-cell--value" role="cell" id="priceQty">
+                            —
+                          </div>
+                        </div>
+                        <div class="details-row details-row--total" role="row">
+                          <div class="details-cell details-cell--label" role="cell" data-i18n="prices.total">
+                            Totale
+                          </div>
+                          <div class="details-cell details-cell--value" role="cell" id="priceTotal">
+                            —
+                          </div>
+                        </div>
+                      </div>
+
+                      <p class="details-note">
+                        <span class="editable" data-edit-key="prices.note">
+                          Prezzi dal listino Blob Records. Nota: i prezzi nel file indicano “solo vinile” e “con
+                          copertina” e non includono IVA.
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="hero__actions">
+                    <a class="button button--primary" href="#quote" data-i18n="hero.ctaQuote">Richiedi un preventivo</a>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="crt" id="quote">
+          <div class="window window--screen">
+            <div class="window__titlebar">
+              <span class="window__title">
+                <img class="window__icon" src="./assets/logo.png" alt="" aria-hidden="true" />
+                <span data-i18n="window.contactTitle">Blob Records - Contattaci</span>
+              </span>
+              <div class="window__controls" aria-hidden="true">
+                <button
+                  type="button"
+                  class="window__btn window__btn--min"
+                  data-window-action="minimize"
+                  aria-label="Riduci"
+                  data-i18n-aria-label="window.minimize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--max"
+                  data-window-action="maximize"
+                  aria-label="Ripristina/Ridimensiona"
+                  data-i18n-aria-label="window.maximize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--close"
+                  data-window-action="close"
+                  aria-label="Chiudi"
+                  data-i18n-aria-label="window.close"
+                ></button>
+              </div>
+            </div>
+
+            <div class="window__body">
+              <section class="quote">
+                <div class="container quote__inner">
+                  <div class="section-head">
+                    <h2 class="section-title editable" data-edit-key="contact.title">Contattaci</h2>
+                    <p class="section-subtitle editable" data-edit-key="contact.subtitle">
+                      Richiedi un preventivo con pochi dettagli.
+                    </p>
+                  </div>
+
+                  <form class="form form--quote" id="quoteForm" autocomplete="off">
+                    <div class="form__section form__section--light">
+                      <div class="form__grid">
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.projectName">Nome progetto</span>
+                          <input class="field__input" name="projectName" required />
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.albumName">Nome album</span>
+                          <input class="field__input" name="albumName" required />
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.vinylType">Tipo di vinile</span>
+                          <select class="field__input" name="vinylType" required>
+                            <option value="12&quot;" data-i18n="form.optionVinyl12">12"</option>
+                            <option value="7&quot;" data-i18n="form.optionVinyl7">7"</option>
+                            <option value="Single" data-i18n="form.optionVinylSingle">Single</option>
+                          </select>
+                        </label>
+
+                        <label class="field" id="vinylWeightWrap">
+                          <span class="field__label" data-i18n="form.vinylWeight">Vinyl weight</span>
+                          <select class="field__input" name="vinylWeight" id="vinylWeightSelect">
+                            <option value="140">140g</option>
+                            <option value="180">180g</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form__section form__section--muted">
+                      <div class="form__grid">
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.qty">Numero di copie</span>
+                          <select class="field__input" name="qty" required id="quoteQtySelect" autocomplete="off">
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="500">500</option>
+                            <option value="1000" selected>1000</option>
+                          </select>
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.color">Colors</span>
+                          <select class="field__input" name="color" required>
+                            <option value="black" data-i18n="form.optionColorBlack">Black</option>
+                            <option value="clear" data-i18n="form.optionColorClear">Clear</option>
+                            <option value="solid color" data-i18n="form.optionColorSolid">Solid</option>
+                            <option value="smoked" data-i18n="form.optionColorSmoked">Smoked</option>
+                            <option value="splatter" data-i18n="form.optionColorSplatter">Splatter</option>
+                            <option value="marbled" data-i18n="form.optionColorMarbled">Marbled</option>
+                            <option value="recycled random" data-i18n="form.optionColorRecycled">Recycled Random</option>
+                          </select>
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.sleeveType">Tipo di copertina</span>
+                          <select class="field__input" name="sleeveType" required>
+                            <option value="Basic" data-i18n="form.optionSleeveBasic">Basic</option>
+                            <option value="Normale" data-i18n="form.optionSleeveStandard">Normale</option>
+                            <option value="Gatefold" data-i18n="form.optionSleeveGatefold">Gatefold</option>
+                          </select>
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.extras">Extra</span>
+                          <select class="field__input" name="extras" required>
+                            <option value="Nessuno" data-i18n="form.optionExtrasNone">Nessuno</option>
+                            <option value="Inserto" data-i18n="form.optionExtrasInsert">Inserto</option>
+                            <option value="Sticker" data-i18n="form.optionExtrasSticker">Sticker</option>
+                            <option value="Poster" data-i18n="form.optionExtrasPoster">Poster</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form__section form__section--warm">
+                      <div class="form__grid">
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.email">E-mail</span>
+                          <input class="field__input" type="email" name="email" autocomplete="email" required />
+                        </label>
+
+                        <label class="field">
+                          <span class="field__label" data-i18n="form.phone">Phone number</span>
+                          <input class="field__input" type="tel" name="phone" autocomplete="tel" required />
+                        </label>
+
+                        <label class="field field--full">
+                          <span class="field__label" data-i18n="form.projectDescription">Descrivi il tuo progetto</span>
+                          <textarea
+                            class="field__input field__input--area"
+                            name="projectDescription"
+                            rows="5"
+                            data-i18n-placeholder="form.projectDescriptionPlaceholder"
+                            required
+                          ></textarea>
+                        </label>
+                      </div>
+
+                      <div class="form__actions">
+                        <button class="button button--primary" type="submit" data-i18n="form.send">Invia</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <div class="crt" id="footer-window">
+          <div class="window window--screen window--compact">
+            <div class="window__titlebar">
+              <span class="window__title">
+                <img class="window__icon" src="./assets/logo.png" alt="" aria-hidden="true" />
+                <span data-i18n="footer.brand">Blob Records</span>
+              </span>
+              <div class="window__controls" aria-hidden="true">
+                <button
+                  type="button"
+                  class="window__btn window__btn--min"
+                  data-window-action="minimize"
+                  aria-label="Riduci"
+                  data-i18n-aria-label="window.minimize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--max"
+                  data-window-action="maximize"
+                  aria-label="Ripristina/Ridimensiona"
+                  data-i18n-aria-label="window.maximize"
+                ></button>
+                <button
+                  type="button"
+                  class="window__btn window__btn--close"
+                  data-window-action="close"
+                  aria-label="Chiudi"
+                  data-i18n-aria-label="window.close"
+                ></button>
+              </div>
+            </div>
+
+            <div class="window__body">
+              <footer class="footer">
+                <div class="footer__inner">
+                  <span class="footer__text">© <span id="year"></span> <span data-i18n="footer.brand">Blob Records</span></span>
+                  <span class="footer__text">partita iva IT</span>
+                </div>
+              </footer>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <aside class="taskbar" role="complementary" aria-label="Barra delle applicazioni" data-i18n-aria-label="taskbar.aria">
+        <button type="button" class="taskbar__start" id="startButton" aria-label="Menu" data-i18n-aria-label="taskbar.menu">
+          <img class="taskbar__logo" src="./assets/logo.png" alt="Blob" />
+          <span>Start</span>
+        </button>
+        <div class="taskbar__tasks">
+          <a class="taskbar__task" href="#prices" data-i18n="taskbar.prices">Prezzi</a>
+          <a class="taskbar__task" href="#quote" data-i18n="taskbar.quote">Richiedi preventivo</a>
+        </div>
+        <div class="taskbar__crt" aria-label="Effetto CRT">
+          <button type="button" class="taskbar__crt-toggle" id="crtToggle" aria-pressed="true">ON</button>
+        </div>
+        <div class="taskbar__lang" aria-label="Language">
+          <button
+            type="button"
+            class="taskbar__lang-btn is-active"
+            id="langIt"
+            data-lang-button="it"
+            aria-label="Italiano"
+            aria-pressed="true"
+          >
+            <span class="taskbar__flag taskbar__flag--it" aria-hidden="true"></span>
+            <span>IT</span>
+          </button>
+          <button
+            type="button"
+            class="taskbar__lang-btn"
+            id="langEn"
+            data-lang-button="en"
+            aria-label="English"
+            aria-pressed="false"
+          >
+            <span class="taskbar__flag taskbar__flag--england" aria-hidden="true"></span>
+            <span>EN</span>
+          </button>
+        </div>
+        <button
+          type="button"
+          class="taskbar__infos"
+          id="downloadFilesButton"
+          aria-label="Downloads"
+          data-i18n-aria-label="taskbar.downloadFilesButton"
+          aria-expanded="false"
+        >
+          <span data-i18n="taskbar.downloadFiles">Downloads</span>
+        </button>
+        <button type="button" class="taskbar__infos" id="infosButton" aria-label="Infos" data-i18n-aria-label="taskbar.infosButton" aria-expanded="false">
+          <span data-i18n="taskbar.infos">Infos</span>
+        </button>
+        <button type="button" class="taskbar__infos" id="storyButton" aria-label="About us" data-i18n-aria-label="taskbar.storyButton" aria-expanded="false">
+          <span data-i18n="taskbar.story">About us</span>
+        </button>
+        <button type="button" class="taskbar__download" id="downloadHtml" data-i18n="taskbar.download">
+          Download HTML
+        </button>
+      </aside>
+
+      <section class="start-panel is-hidden" id="startStoryPanel" aria-label="About us" data-i18n-aria-label="panel.storyAria">
+        <div class="start-panel__titlebar">
+          <span class="start-panel__title" data-i18n="panel.storyTitle">About us</span>
+          <button type="button" class="start-panel__close" id="startStoryClose" aria-label="Close About us panel" data-i18n-aria-label="panel.closeStory">x</button>
+        </div>
+        <div class="start-panel__body">
+          <p class="start-panel__text editable" data-edit-key="story.text">
+            We are two friends who grew up trading records, spending weekends in small clubs, and dreaming about
+            pressing our own vinyl. Today, Blob Records is our first step: helping artists turn songs into real
+            records with care, clear prices, and hands-on support from start to finish. For now we are focused on
+            pressing vinyl, and this is only the beginning of our journey.
+          </p>
+        </div>
+      </section>
+
+      <section class="start-panel start-panel--infos is-hidden" id="infosPanel" aria-label="What you need to know" data-i18n-aria-label="panel.infosAria">
+        <div class="start-panel__titlebar">
+          <span class="start-panel__title" data-i18n="panel.infosTitle">What you need to know</span>
+          <button type="button" class="start-panel__close" id="infosClose" aria-label="Close infos panel" data-i18n-aria-label="panel.closeInfos">x</button>
+        </div>
+        <div class="start-panel__body">
+          <p class="start-panel__text editable" data-edit-key="infos.text">
+            Before pressing vinyl, prepare your master specifically for vinyl cutting: avoid extreme low-end in stereo,
+            control sibilance, and leave enough headroom. Check your track order and side length early, because longer
+            sides can reduce volume and impact. Finalize artwork with correct bleed and dimensions, and always review a
+            test pressing before approving full production. Plan timeline and budget with margin, since lacquers,
+            plating, and pressing each need careful quality checks.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="start-panel start-panel--infos is-hidden"
+        id="downloadFilesPanel"
+        aria-label="Download files"
+        data-i18n-aria-label="panel.downloadAria"
+      >
+        <div class="start-panel__titlebar">
+          <span class="start-panel__title" data-i18n="panel.downloadTitle">Downloads</span>
+          <button
+            type="button"
+            class="start-panel__close"
+            id="downloadFilesClose"
+            aria-label="Close download panel"
+            data-i18n-aria-label="panel.closeDownload"
+          >
+            x
+          </button>
+        </div>
+        <div class="start-panel__body">
+          <p class="start-panel__text download-files__hint" id="downloadFilesHint" hidden data-i18n="panel.downloadHint">
+            Click a link to download.
+          </p>
+          <p class="start-panel__text" id="downloadFilesEmpty" data-i18n="panel.downloadEmpty">
+            No files available yet. Add files to the assets folder and register them in the ASSET_DOWNLOADS array in
+            app.js.
+          </p>
+          <ul
+            class="download-files__list"
+            id="downloadFilesList"
+            data-i18n-aria-label="panel.downloadListAria"
+          ></ul>
+        </div>
+      </section>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
+
