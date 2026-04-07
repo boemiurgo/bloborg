@@ -134,6 +134,11 @@ const TRANSLATIONS = {
       sleeveTypeLabel: 'Tipo di copertina',
       extrasLabel: 'Extra',
       projectDescriptionLabel: 'Descrizione progetto',
+      quoteStatusAria: 'Stato richiesta preventivo',
+      quoteSuccessTitle: 'Successo',
+      quoteErrorTitle: 'Errore',
+      quoteSentSuccess: 'La tua richiesta è stata inviata, ti ricontatteremo presto.',
+      quoteSentError: "Qualcosa è andato storto durante l'invio. Riprova.",
     },
     footer: { brand: 'Blob Records', up: 'Su' },
     taskbar: {
@@ -266,6 +271,11 @@ const TRANSLATIONS = {
       sleeveTypeLabel: 'Sleeve type',
       extrasLabel: 'Extras',
       projectDescriptionLabel: 'Project description',
+      quoteStatusAria: 'Quote request status',
+      quoteSuccessTitle: 'Success',
+      quoteErrorTitle: 'Error',
+      quoteSentSuccess: "Your quote has been sent, we'll get back to you.",
+      quoteSentError: 'Something went wrong while sending your quote. Please try again.',
     },
     footer: { brand: 'Blob Records', up: 'Up' },
     taskbar: {
@@ -356,6 +366,8 @@ const priceList = {
     '300': { vinyl: 4.5, cover: 6 },
     '500': { vinyl: 3.5, cover: 5 },
     '1000': { vinyl: 3, cover: 4 },
+    '2000': { vinyl: 2.75, cover: 3.75 },
+    '3000': { vinyl: 2.5, cover: 3.5 },
   },
   '7': {
     '100': { vinyl: 6, cover: 9 },
@@ -449,6 +461,8 @@ function labelFor(group, value) {
       '300': '300',
       '500': '500',
       '1000': '1000',
+      '2000': '2000',
+      '3000': '3000',
     },
     weight: {
       '140': '140g',
@@ -706,7 +720,7 @@ function setupChips() {
   });
 }
 
-function showPopup(message, isError = false) {
+function showPopup(message, isError = false, onOk = null) {
   const existing = document.getElementById('quoteStatusPopup');
   if (existing) existing.remove();
 
@@ -714,9 +728,10 @@ function showPopup(message, isError = false) {
   overlay.id = 'quoteStatusPopup';
   overlay.setAttribute('role', 'dialog');
   overlay.setAttribute('aria-live', 'polite');
-  overlay.setAttribute('aria-label', 'Quote status');
+  overlay.setAttribute('aria-label', t('form.quoteStatusAria'));
 
   const bg = isError ? '#5b1b1b' : '#0f5132';
+  const title = isError ? t('form.quoteErrorTitle') : t('form.quoteSuccessTitle');
 
   overlay.innerHTML = `
     <div style="
@@ -739,7 +754,7 @@ function showPopup(message, isError = false) {
         font-family: var(--px, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace);
       ">
         <div style="font-weight: 900; font-size: 14px; margin-bottom: 10px; color: ${bg}; text-transform: uppercase;">
-          ${isError ? 'Error' : 'Success'}
+          ${title}
         </div>
         <div style="white-space: pre-wrap; line-height: 1.5; font-size: 12px; color: #111;">
           ${message}
@@ -762,7 +777,25 @@ function showPopup(message, isError = false) {
 
   document.body.appendChild(overlay);
   const ok = overlay.querySelector('#quoteStatusOk');
-  ok?.addEventListener('click', () => overlay.remove());
+  ok?.addEventListener('click', () => {
+    overlay.remove();
+    if (typeof onOk === 'function') onOk();
+  });
+}
+
+function focusTopSection() {
+  const topSection = document.getElementById('top');
+  const topCrt = topSection?.classList.contains('crt') ? topSection : topSection?.closest('.crt');
+  if (topCrt) {
+    topCrt.classList.remove('crt--closed', 'crt--hidden');
+    const win = topCrt.querySelector('.window');
+    if (win) win.classList.remove('window--minimized');
+  }
+  if (window.location.hash !== '#top') {
+    window.location.hash = '#top';
+  } else {
+    topSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function setupForm() {
@@ -890,9 +923,9 @@ function setupForm() {
       if (!res.ok) throw new Error(`Formspree error: ${res.status}`);
 
       // If configured correctly in Formspree, the email is sent now.
-      showPopup("Your quote has been sent, we'll get back to you");
+      showPopup(t('form.quoteSentSuccess'), false, focusTopSection);
     } catch (err) {
-      showPopup('Something went wrong while sending your quote. Please try again.', true);
+      showPopup(t('form.quoteSentError'), true);
       console.error(err);
     } finally {
       if (submitBtn) submitBtn.disabled = false;
@@ -1403,19 +1436,7 @@ function setupStartButton() {
   if (!startButton) return;
 
   startButton.addEventListener('click', () => {
-    const topSection = document.getElementById('top');
-    const topWindow = topSection?.classList.contains('crt') ? topSection : topSection?.closest('.crt');
-    if (topWindow) {
-      topWindow.classList.remove('crt--closed', 'crt--hidden');
-      const win = topWindow.querySelector('.window');
-      if (win) win.classList.remove('window--minimized');
-    }
-
-    if (window.location.hash !== '#top') {
-      window.location.hash = '#top';
-    } else {
-      topSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    focusTopSection();
   });
 }
 
